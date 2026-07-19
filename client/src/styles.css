@@ -71,3 +71,49 @@
   .compare-selectors{flex-direction:column}
   .status-timeline b{font-size:10px}
 }
+
+/* Professional workspace refresh */
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#7657f6,#405cf5);box-shadow:0 10px 28px #6547e755}
+.tagline{padding-left:48px;margin-top:8px}
+.topbar{padding-block:12px}
+.topbar p{display:flex;align-items:center;gap:6px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#21c28b;box-shadow:0 0 0 4px #21c28b20}
+.topbar-actions{display:flex;align-items:center;gap:12px}
+.profile-chip{border:1px solid #e1e5ee;background:#fff;border-radius:13px;padding:6px 9px 6px 6px;display:flex;align-items:center;gap:9px;cursor:pointer;text-align:left;color:#1f2937}
+.profile-chip:hover{border-color:#c9c2fa;background:#faf9ff}
+.profile-avatar{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#1f2937,#6651e8);color:#fff;font-size:12px;font-weight:800}
+.profile-chip b,.profile-chip small{display:block}
+.profile-chip b{font-size:12px}
+.profile-chip small{font-size:10px;color:#7b8495;margin-top:2px}
+.profile-chip.guest .profile-avatar{background:#e9e7ff;color:#5b45d8}
+.hero{background:radial-gradient(circle at 85% 15%,#6755ed18,transparent 34%),linear-gradient(110deg,#fff,#f5f1ff);border-color:#e2ddff;grid-template-columns:1.04fr .96fr;gap:30px;min-height:340px}
+.primary-btn{box-shadow:0 8px 22px #6547e72e}
+.primary-btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.recommendation-console{width:min(420px,100%);background:#0d1728;color:#fff;border:1px solid #263450;border-radius:19px;padding:17px;box-shadow:0 28px 70px #35256f35;transform:rotate(1deg)}
+.console-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #263450;padding-bottom:13px;font-size:12px;font-weight:700}
+.console-head>span{display:flex;align-items:center;gap:8px}
+.console-head svg{color:#9d8aff}
+.console-head small{color:#65d6ae;display:flex;align-items:center;gap:6px}
+.console-head i{width:6px;height:6px;background:#3dd6a0;border-radius:50%}
+.console-query{margin:14px 0;background:#131f33;border:1px solid #263450;border-radius:10px;padding:11px;color:#aebbd0;font-size:11px}
+.match-row{display:grid;grid-template-columns:39px 1fr auto;align-items:center;gap:10px;padding:11px 7px;border-bottom:1px solid #202d43}
+.match-row.primary{background:#7761ee10;border:1px solid #6f5be755;border-radius:11px}
+.product-glyph{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:#202e49;color:#9d8aff}
+.match-row b,.match-row small{display:block}
+.match-row b{font-size:11px}
+.match-row small{color:#8190a7;font-size:9px;margin-top:3px}
+.match-row strong{color:#56d6a7;font-size:12px}
+.console-foot{display:flex;align-items:center;gap:7px;color:#8491a5;font-size:9px;padding-top:13px}
+.console-foot svg:first-child{color:#4ade80}
+.console-foot svg:last-child{margin-left:auto;color:#fbbf24}
+
+@media(max-width:800px){
+  .topbar-actions{gap:8px}
+  .profile-chip small,.profile-chip svg{display:none}
+}
+@media(max-width:520px){
+  .ask-ai-btn{font-size:0;padding:10px}
+  .ask-ai-btn svg{display:block}
+  .profile-chip{display:none}
+}

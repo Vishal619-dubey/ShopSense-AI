@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, TrendingUp, ShieldCheck } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, ShieldCheck, BrainCircuit, Check, Headphones, Laptop, Star } from "lucide-react";
 import api from "../services/api";
 import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
@@ -25,9 +25,24 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="orb">🤖</div>
-          <div className="floating-card">🎧 <b>92% Match</b></div>
-          <div className="shopping-bag">🛍️</div>
+          <div className="recommendation-console">
+            <div className="console-head">
+              <span><BrainCircuit size={18}/> AI Match Engine</span>
+              <small><i/> Live</small>
+            </div>
+            <div className="console-query">Best tech under ₹50,000</div>
+            <div className="match-row primary">
+              <span className="product-glyph"><Laptop size={21}/></span>
+              <span><b>ASUS VivoBook 15</b><small>Performance · Student choice</small></span>
+              <strong>96%</strong>
+            </div>
+            <div className="match-row">
+              <span className="product-glyph"><Headphones size={21}/></span>
+              <span><b>Sony Wireless</b><small>Value · 50h battery</small></span>
+              <strong>92%</strong>
+            </div>
+            <div className="console-foot"><Check size={14}/> Ranked using budget, rating and intent <Star size={14}/></div>
+          </div>
         </div>
       </div>
 

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07101f"/>
+      <stop offset="1" stop-color="#17133c"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8b6cff"/>
+      <stop offset="1" stop-color="#405cf5"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000" flood-opacity=".3"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1035" cy="60" r="340" fill="#6d4aff" opacity=".13"/>
+  <path d="M0 520C235 435 392 600 630 514c220-80 328-33 570 33" fill="none" stroke="#7059e8" stroke-opacity=".22" stroke-width="2"/>
+
+  <g transform="translate(74 64)">
+    <rect width="72" height="72" rx="20" fill="url(#brand)"/>
+    <path d="M21 30h30l-3 27H24L21 30Z" fill="#fff" opacity=".96"/>
+    <path d="M28 31v-5a8 8 0 0 1 16 0v5" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <text x="92" y="30" fill="#fff" font-family="Arial, sans-serif" font-size="30" font-weight="700">ShopSense AI</text>
+    <text x="92" y="57" fill="#9da9bd" font-family="Arial, sans-serif" font-size="14" letter-spacing="4">INTELLIGENT COMMERCE</text>
+  </g>
+
+  <text x="76" y="247" fill="#fff" font-family="Arial, sans-serif" font-size="58" font-weight="700">Shopping that gets you.</text>
+  <text x="76" y="316" fill="#9d8aff" font-family="Arial, sans-serif" font-size="58" font-weight="700">Smarter choices, faster.</text>
+  <text x="80" y="373" fill="#aab5c7" font-family="Arial, sans-serif" font-size="21">AI discovery · Smart comparison · Secure checkout · Admin operations</text>
+
+  <g transform="translate(78 437)">
+    <rect width="188" height="48" rx="24" fill="#121d30" stroke="#5646c5"/>
+    <circle cx="24" cy="24" r="6" fill="#38d39f"/>
+    <text x="42" y="30" fill="#dfe5ef" font-family="Arial, sans-serif" font-size="16" font-weight="600">MERN + Groq AI</text>
+    <rect x="206" width="186" height="48" rx="24" fill="#121d30" stroke="#5646c5"/>
+    <text x="234" y="30" fill="#dfe5ef" font-family="Arial, sans-serif" font-size="16" font-weight="600">Razorpay Ready</text>
+    <rect x="410" width="191" height="48" rx="24" fill="#121d30" stroke="#5646c5"/>
+    <text x="436" y="30" fill="#dfe5ef" font-family="Arial, sans-serif" font-size="16" font-weight="600">Portfolio Project</text>
+  </g>
+
+  <g transform="translate(900 133) scale(.82)" filter="url(#shadow)">
+    <rect width="280" height="360" rx="28" fill="#0d1728" stroke="#2a3853" stroke-width="2"/>
+    <rect x="24" y="24" width="232" height="44" rx="12" fill="#142138"/>
+    <circle cx="45" cy="46" r="6" fill="#3dd6a0"/>
+    <rect x="62" y="40" width="110" height="12" rx="6" fill="#7f8ca2"/>
+    <rect x="24" y="92" width="232" height="92" rx="15" fill="#7059e8" opacity=".17" stroke="#7059e8"/>
+    <rect x="42" y="112" width="52" height="52" rx="13" fill="#273755"/>
+    <path d="M56 133h24M56 143h16" stroke="#9d8aff" stroke-width="5" stroke-linecap="round"/>
+    <rect x="108" y="112" width="92" height="12" rx="6" fill="#e6ebf4"/>
+    <rect x="108" y="136" width="68" height="9" rx="4" fill="#71809a"/>
+    <text x="208" y="148" fill="#4ee0ad" font-family="Arial, sans-serif" font-size="18" font-weight="700">96%</text>
+    <rect x="24" y="204" width="232" height="62" rx="14" fill="#142138"/>
+    <rect x="42" y="221" width="128" height="10" rx="5" fill="#808ca0"/>
+    <rect x="42" y="241" width="88" height="8" rx="4" fill="#495a75"/>
+    <rect x="24" y="286" width="150" height="45" rx="13" fill="url(#brand)"/>
+    <text x="52" y="315" fill="#fff" font-family="Arial, sans-serif" font-size="15" font-weight="700">Ask ShopSense</text>
+  </g>
+
+  <text x="80" y="576" fill="#65738a" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">BUILT BY VISHAL DUBEY</text>
+</svg>

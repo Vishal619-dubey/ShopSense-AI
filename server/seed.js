@@ -15,9 +15,21 @@ const products=[
 {name:"Portronics Toad Wireless Mouse",brand:"Portronics",category:"Accessories",description:"Ergonomic wireless mouse for study, office and daily use.",price:499,originalPrice:899,stock:60,image:"https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80",rating:4.2,reviewCount:6400,tags:["mouse","wireless","office","student"],aiMatch:85,specs:{DPI:"1600",Connectivity:"2.4 GHz",Battery:"AA"}}
 ];
 
+const adminEmail = process.env.SEED_ADMIN_EMAIL?.trim().toLowerCase();
+const adminPassword = process.env.SEED_ADMIN_PASSWORD;
+
+if (!adminEmail || !adminPassword || adminPassword.length < 12) {
+  throw new Error("Set SEED_ADMIN_EMAIL and a 12+ character SEED_ADMIN_PASSWORD before running the seed");
+}
+
 await connectDB();
 await Promise.all([Product.deleteMany({}),User.deleteMany({})]);
 await Product.insertMany(products);
-await User.create({name:"ShopSense Admin",email:"admin@shopsense.ai",password:await bcrypt.hash("Admin@123",10),role:"admin"});
-console.log("Seed complete. Admin: admin@shopsense.ai / Admin@123");
+await User.create({
+  name: process.env.SEED_ADMIN_NAME?.trim() || "ShopSense Admin",
+  email: adminEmail,
+  password: await bcrypt.hash(adminPassword, 12),
+  role: "admin"
+});
+console.log("Seed complete. Admin account created securely from environment variables.");
 process.exit(0);

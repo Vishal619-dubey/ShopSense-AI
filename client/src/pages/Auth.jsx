@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { ShoppingBag } from "lucide-react";
 
 export default function Auth() {
   const [mode, setMode] = useState("login");
@@ -24,12 +25,12 @@ export default function Auth() {
   return (
     <section className="auth-page">
       <form className="auth-card" onSubmit={submit}>
-        <div className="brand big">🛍️ ShopSense <b>AI</b></div>
+        <div className="brand big"><span className="brand-mark"><ShoppingBag size={20}/></span><span>ShopSense <b>AI</b></span></div>
         <h2>{mode === "login" ? "Welcome back" : "Create your account"}</h2>
         <p>Access personalized shopping and order tracking.</p>
         {mode === "register" && <input placeholder="Full name" value={form.name} onChange={(e) => setForm({...form, name:e.target.value})}/>}
         <input type="email" placeholder="Email address" value={form.email} onChange={(e) => setForm({...form, email:e.target.value})}/>
-        <input type="password" placeholder="Password" value={form.password} onChange={(e) => setForm({...form, password:e.target.value})}/>
+        <input type="password" minLength={mode === "register" ? 8 : undefined} placeholder={mode === "register" ? "Password (minimum 8 characters)" : "Password"} value={form.password} onChange={(e) => setForm({...form, password:e.target.value})}/>
         <button className="primary-btn full" disabled={loading}>{loading ? "Please wait..." : mode === "login" ? "Sign in" : "Create account"}</button>
         <button type="button" className="link-btn" onClick={() => setMode(mode === "login" ? "register" : "login")}>
           {mode === "login" ? "New here? Create an account" : "Already have an account? Sign in"}

@@ -54,7 +54,7 @@ export default function Checkout() {
     return true;
   };
 
-  const createFinalOrder = async (paymentDetails = {}) => {
+  const createFinalOrder = async (paymentDetails = {}, paymentProof = "") => {
     const { data } = await api.post("/orders", {
       items: cart.map((item) => ({
         product: item.product._id,
@@ -63,7 +63,8 @@ export default function Checkout() {
       })),
       shippingAddress: address,
       paymentMethod,
-      paymentDetails
+      paymentDetails,
+      paymentProof
     });
 
     clearCart();
@@ -80,13 +81,20 @@ export default function Checkout() {
         return;
       }
 
-      const { data } = await api.post("/payments/create-order", { amount: grandTotal });
+      const { data } = await api.post("/payments/create-order", {
+        items: cart.map((item) => ({
+          product: item.product._id,
+          quantity: item.quantity
+        }))
+      });
 
       if (data.demo) {
-        await createFinalOrder({
+        const paymentDetails = {
           razorpay_order_id: data.order.id,
           razorpay_payment_id: `demo_payment_${Date.now()}`
-        });
+        };
+        const verified = await api.post("/payments/verify", { ...paymentDetails, paymentIntent: data.paymentIntent });
+        await createFinalOrder(paymentDetails, verified.data.paymentProof);
         toast.success("Demo online payment completed");
         return;
       }
@@ -108,8 +116,8 @@ export default function Checkout() {
         },
         theme: { color: "#6547e7" },
         handler: async (response) => {
-          await api.post("/payments/verify", response);
-          await createFinalOrder(response);
+          const verified = await api.post("/payments/verify", { ...response, paymentIntent: data.paymentIntent });
+          await createFinalOrder(response, verified.data.paymentProof);
         }
       };
 

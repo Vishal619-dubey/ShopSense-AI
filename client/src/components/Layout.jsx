@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Home, Grid2X2, Sparkles, ShoppingCart, Heart, Package, ShieldCheck, LogOut, Scale } from "lucide-react";
+import { Home, Grid2X2, Sparkles, ShoppingCart, Heart, Package, ShieldCheck, LogOut, Scale, ShoppingBag, ChevronDown } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useShop } from "../context/ShopContext";
 
@@ -24,7 +24,7 @@ export default function Layout() {
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <div className="brand"><span>🛍️</span> ShopSense <b>AI</b></div>
+        <div className="brand"><span className="brand-mark"><ShoppingBag size={20}/></span><span>ShopSense <b>AI</b></span></div>
         <p className="tagline">Smart shopping, personalized by AI.</p>
         <nav>
           {nav.map(([to, label, Icon]) => (
@@ -53,11 +53,25 @@ export default function Layout() {
         <header className="topbar">
           <div>
             <h1>ShopSense AI</h1>
-            <p>Intelligent E-commerce Platform</p>
+            <p><span className="live-dot"/> Intelligent commerce workspace</p>
           </div>
-          <button className="outline-btn" onClick={() => navigate("/assistant")}>
-            <Sparkles size={16} /> Ask AI
-          </button>
+          <div className="topbar-actions">
+            <button className="outline-btn ask-ai-btn" onClick={() => navigate("/assistant")}>
+              <Sparkles size={16} /> Ask ShopSense
+            </button>
+            {user ? (
+              <button className="profile-chip" onClick={() => user.role === "admin" && navigate("/admin")}>
+                <span className="profile-avatar">{user.name?.slice(0,2).toUpperCase()}</span>
+                <span><b>{user.name}</b><small>{user.role === "admin" ? "Store administrator" : "Verified customer"}</small></span>
+                <ChevronDown size={15}/>
+              </button>
+            ) : (
+              <button className="profile-chip guest" onClick={() => navigate("/login")}>
+                <span className="profile-avatar">GU</span>
+                <span><b>Guest</b><small>Sign in to continue</small></span>
+              </button>
+            )}
+          </div>
         </header>
         <Outlet />
       </main>
